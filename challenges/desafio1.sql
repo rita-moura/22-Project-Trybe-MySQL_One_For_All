@@ -28,7 +28,9 @@ CREATE TABLE songs(
     name VARCHAR(120) NOT NULL,
     duration INT NOT NULL,
     album_id INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES albums (album_id)
+    artist_id INT NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES albums (album_id),
+    FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE users(
@@ -85,18 +87,18 @@ VALUES
 ('I Put A Spell On You', 2012, 6);
 
 
-INSERT INTO songs (name, duration, album_id)
+INSERT INTO songs (name, duration, album_id, artist_id)
 VALUES
-("BREAK MY SOUL", 279, 1),
-("VIRGO'S GROOVE", 369, 1),
-("ALIEN SUPERSTAR", 116, 1),
-("Don't Stop Me Now", 203, 2),
-("Under Pressure", 152, 3),
-("Como Nossos Pais", 105, 4),
-("O Medo de Amar é o Medo de Ser Livre", 207, 5),
-("Samba em Paris", 267, 6),
-("The Bard's Song", 244, 7),
-("Feeling Good", 100, 8);
+("BREAK MY SOUL", 279, 1, 1),
+("VIRGO'S GROOVE", 369, 1, 1),
+("ALIEN SUPERSTAR", 116, 1, 1),
+("Don't Stop Me Now", 203, 2, 2),
+("Under Pressure", 152, 3, 2),
+("Como Nossos Pais", 105, 4, 2),
+("O Medo de Amar é o Medo de Ser Livre", 207, 5, 2),
+("Samba em Paris", 267, 6, 4),
+("The Bard's Song", 244, 7, 5),
+("Feeling Good", 100, 8, 6);
 
 INSERT INTO users (name, age, signature_date, plan_id)
 VALUES
